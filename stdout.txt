@@ -1,0 +1,6 @@
+Reading config file C:\snes9x/snes9x.debugger.cfg
+Saving	config file	C:\snes9x/snes9x.debugger.cfg
+No ROM file header found.
+Map_LoROMMap
+"I've 0 idea wut to do" [checksum ok] LoROM, 2Mbits, Type: ROM, Mode: 20, TV: NTSC, S-RAM: 0KB, ROMId: SNES Company: 00 CRC32: 45AB3A21
+Saving	config file	C:\snes9x/snes9x.debugger.cfg
