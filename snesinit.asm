@@ -13,7 +13,7 @@
 .org 1
  .section "Snes_Init" SEMIFREE
  Init:
- 	sep 	#$30    ; A is 8 bit
+ 	sep 	#$20    ; A is 8 bit
  	lda 	#$8F    ; screen off, full brightness
  	sta 	$2100   ; brightness + screen enable register 
  	stz 	$2101   ; Sprite register (size + address in VRAM) 
