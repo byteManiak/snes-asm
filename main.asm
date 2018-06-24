@@ -1,6 +1,8 @@
 .include "header.inc"
 .include "snesinit.asm"
 .include "initdma.asm"
+.include "controls.asm"
+.include "ball.asm"
 .include "sprites/spriteCols.inc"
 .include "sprites/sprites.inc"
 
@@ -13,6 +15,8 @@ Start:
 	;sta $2100	; 00001111 - the 4 LSB control brightness. max brightness
 	stz $2105
 	stz $2107
+	lda #$81
+	sta $4200
 	LoadPalette spriteCols, 128, 32
 	LoadSprites sprites, $0000, 2048
 	jsr InitOAM
@@ -27,4 +31,8 @@ loop:
 	jmp loop
 
 VBlank:
+	jsr leftPaddle
+	jsr rightPaddle
+	jsr ingameDMA	
+	lda $4210
 	rti

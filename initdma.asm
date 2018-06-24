@@ -104,7 +104,6 @@ InitOAM:
 	sta $0009	; Set Y coord of left paddle top and bottom
 	lda #4
 	sta $0006
-	lda #8
 	sta $000A	; Set sprites for the left paddle
 
 	lda #224
@@ -116,7 +115,6 @@ InitOAM:
 	sta $0011	; Set Y coord of right paddle top and bottom
 	lda #4
 	sta $000E
-	lda #8
 	sta $0012	; Set sprites for the left paddle
 	lda #$40
 	sta $000F
@@ -135,11 +133,36 @@ InitOAM:
 	stz $2102
 	stz $2103	; Set OAM address to 0
 
-	lda #$04
+	lda #4
 	sta $4301	; Set DMA destination to $2104
 
 	lda #1
 	sta $420b	; Begin DMA transfer
+
+	plp
+	rts
+
+ingameDMA:
+	php
+
+	stz $4302
+	stz $4303
+	lda #$7e
+	sta $4304
+
+	ldx #$0014
+	stx $4305
+
+	stz $4300
+
+	stz $2102
+	stz $2103
+
+	lda #4
+	sta $4301
+
+	lda #1
+	sta $420b
 
 	plp
 	rts
